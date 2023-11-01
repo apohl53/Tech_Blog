@@ -1,7 +1,6 @@
 // Create an express router instance object
 const router = require("express").Router();
 const User = require("../models/User");
-const Coo = require("../models/Coo");
 
 // Block an auth page if user is already logged in
 function isLoggedIn(req, res, next) {
@@ -37,19 +36,19 @@ async function authenticate(req, res, next) {
 }
 
 // Add one test GET route at root - localhost:3333/
-router.get("/", authenticate, async (req, res) => {
-  const coos = await Coo.findAll({
-    include: {
-      model: User,
-      as: "author",
-    },
-  });
+// router.get("/", authenticate, async (req, res) => {
+//   const coos = await Coo.findAll({
+//     include: {
+//       model: User,
+//       as: "author",
+//     },
+//   });
 
-  res.render("landing", {
-    user: req.user,
-    coos: coos.map((c) => c.get({ plain: true })),
-  });
-});
+//   res.render("landing", {
+//     user: req.user,
+//     coos: coos.map((c) => c.get({ plain: true })),
+//   });
+// });
 
 // GET route to show the register form
 router.get("/register", isLoggedIn, authenticate, (req, res) => {
@@ -74,13 +73,13 @@ router.get("/login", isLoggedIn, authenticate, (req, res) => {
 });
 
 // Show Post a Coo page
-router.get("/coo", isAuthenticated, authenticate, (req, res) => {
-  res.render("coo_form", {
-    user: req.user,
-  });
+// router.get("/coo", isAuthenticated, authenticate, (req, res) => {
+//   res.render("coo_form", {
+//     user: req.user,
+//   });
 
-  req.session.errors = [];
-});
+//   req.session.errors = [];
+// });
 
 // Export the router
 module.exports = router;
