@@ -7,6 +7,9 @@ class BlogPost extends Model {}
 
 BlogPost.init(
   {
+    title: {
+      type: DataTypes.STRING,
+    },
     text: {
       type: DataTypes.STRING,
       validate: {

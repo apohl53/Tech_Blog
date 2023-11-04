@@ -12,6 +12,12 @@ class User extends Model {}
 // Call User.init and setup a couple columns/fields - email & password as text strings
 User.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
