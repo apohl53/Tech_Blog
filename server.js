@@ -36,7 +36,7 @@ app.use(
 );
 
 // Load our view routes at the root level '/'
-app.use("/", [view_routes, coo_routes]);
+app.use("/", [view_routes]);
 // /auth/register
 app.use("/auth", user_routes);
 

@@ -60,8 +60,8 @@ User.prototype.validatePass = async function (form_password) {
   return is_valid;
 };
 
-User.hasMany(Coo, { as: "coos", foreignKey: "author_id" });
-BlogPost.belongsTo(User, { as: "author", foreignKey: "author_id" });
+// User.hasMany(Coo, { as: "coos", foreignKey: "author_id" });
+// BlogPost.belongsTo(User, { as: "author", foreignKey: "author_id" });
 
 // Export the User model
 module.exports = User;
